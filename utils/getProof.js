@@ -32,7 +32,8 @@ const plantTree = (whitelist) => {
   return tree
 }
 
-const getProof = (whitelist, tree, leaf) => {
+const getProof = (leaf) => {
+  const tree = plantTree(whitelist)
   let index = whitelist.indexOf(leaf)
   const proofs = []
   for (let node of tree) {
@@ -53,16 +54,5 @@ const getProof = (whitelist, tree, leaf) => {
   return proofs
 }
 
-const getRoot = (tree) => "0x" + tree[tree.length - 1][0]
 
-const get = (account) => {
-  const tree = plantTree(whitelist)
-  const proof = getProof(
-    whitelist,
-    tree,
-    account
-  )
-  return proof
-}
-
-export default get
+export default getProof
