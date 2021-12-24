@@ -47,6 +47,7 @@ const whitelist = [
   "0xd9f25b9123d6f30b2082f4fbbeff5f45733fcc74",
   "0xd69f177f2f8fb7bd0c1e99a0e58d10dcd53e5abf",
   "0x54a6ad13e5ae83a2dfd42440f7ab6d90c03e01d3",
-]
+  "0xaf857717781bac024587d9e985d5fce0d25122ef",
+];
 
 export default whitelist
