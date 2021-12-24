@@ -93,7 +93,8 @@ export default function Home() {
         MINT 1
       </button>
       <div>
-        txHash: {hash}
+        txHash: 
+        <a target="_blank" rel="noreferrer noopener" href={`https://rinkeby.etherscan.io/tx/${hash}`}>{hash}</a>
       </div>
       <div>
         status: {status}
