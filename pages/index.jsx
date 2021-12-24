@@ -94,7 +94,7 @@ export default function Home() {
       </button>
       <div>
         txHash: 
-        <a target="_blank" rel="noreferrer noopener" href={`https://rinkeby.etherscan.io/tx/${hash}`}>{hash}</a>
+        <a target="_blank" rel="noreferrer noopener" href={`https://rinkeby.etherscan.io/tx/${hash}`} style={{ color: "blue", textDecoration: "underline" }}>{hash}</a>
       </div>
       <div>
         status: {status}
