@@ -46,6 +46,31 @@ export default function Home() {
     const proof = getProof(account.toLowerCase())
     console.log(proof)
     const r = await contract.methods
+      .mint(account, 1, proof)
+      .send({ from: account, value: cost })
+      .on("transactionHash", (hash) => {
+        setHash(hash)
+        setStatus("pending")
+      })
+      .on("receipt", (receipt) => {
+        console.log(receipt)
+        setStatus("success")
+      })
+      .on("error", (error) => {
+        console.log(error)
+        setStatus("fail")
+      })
+      .catch(error => {
+        console.log(error)
+        setStatus("fail")
+      })
+  }
+
+  const handlePresaleMint = async () => {
+    const cost = web3.utils.toWei("0.1", "ether")
+    const proof = getProof(account.toLowerCase())
+    console.log(proof)
+    const r = await contract.methods
       .presaleMint(account, 1, proof)
       .send({ from: account, value: cost })
       .on("transactionHash", (hash) => {
@@ -89,6 +114,9 @@ export default function Home() {
       <button onClick={handleConnect}>
         Connect
       </button>}
+      <button onClick={handlePresaleMint}>
+        PRESALE MINT 1
+      </button>
       <button onClick={handleMint}>
         MINT 1
       </button>
