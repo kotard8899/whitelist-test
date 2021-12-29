@@ -16,7 +16,7 @@ export default function Home() {
   const [web3, setWeb3] = useState("")
   const [contract, setContract] = useState("")
   const [account, setAccount] = useState("")
-  const address = "0x51f758145ab8ae13ef5afbc75bbe66441810d0e3"
+  const address = "0xd7de6BD2EC16a506A4942d4b2D865671E31C6A53"
   // const contract = new web3.eth.Contract(abi, address)
 
   useEffect(() => {
@@ -42,11 +42,11 @@ export default function Home() {
   const [status, setStatus] = useState("")
 
   const handleMint = async () => {
-    const cost = web3.utils.toWei("0.1", "ether")
+    const cost = web3.utils.toWei("0.01", "ether")
     const proof = getProof(account.toLowerCase())
     console.log(proof)
     const r = await contract.methods
-      .mint(account, 1, proof)
+      .mint(account.toLowerCase(), 1, proof)
       .send({ from: account, value: cost })
       .on("transactionHash", (hash) => {
         setHash(hash)
@@ -67,11 +67,11 @@ export default function Home() {
   }
 
   const handlePresaleMint = async () => {
-    const cost = web3.utils.toWei("0.1", "ether")
+    const cost = web3.utils.toWei("0.01", "ether")
     const proof = getProof(account.toLowerCase())
     console.log(proof)
     const r = await contract.methods
-      .presaleMint(account, 1, proof)
+      .presaleMint(account.toLowerCase(), 1, proof)
       .send({ from: account, value: cost })
       .on("transactionHash", (hash) => {
         setHash(hash)
